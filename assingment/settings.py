@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -119,8 +120,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_URL = os.path.join(BASE_DIR, 'task_reporter/static/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'task_reporter/media')
 
 #Heroku Deployment
 django_heroku.settings(locals())
+
+#Database configuration for Heroku deployment
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
