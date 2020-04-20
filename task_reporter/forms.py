@@ -15,7 +15,7 @@ class ProgressForm(forms.ModelForm):
     name = forms.CharField(label='Name', widget=forms.TextInput(attrs={'class': "form-control"}))
     reports = forms.ChoiceField(label='Reports', choices=reports, widget=forms.Select(attrs={'class': "form-control"}))
     no_of_hours = forms.IntegerField(label='No of Hours', widget=forms.NumberInput(attrs={'class': "form-control"}))
-    today_progress = forms.CharField(label="TODAY'S PROGRESS", widget=forms.TextInput(attrs={'class': "form-control"}))
+    today_progress = forms.CharFsield(label="TODAY'S PROGRESS", widget=forms.TextInput(attrs={'class': "form-control"}))
     concerns = forms.CharField(label='CONCERN IF ANY', widget=forms.Textarea(attrs={'rows' : 2, 'class': "form-control"}))
     next_plans = forms.CharField(label='NEXT PLAN', widget=forms.Textarea(attrs={'rows' : 2, 'class': "form-control"}))
     team_lead = forms.ChoiceField(label='Team Lead', choices=team_leads, widget=forms.RadioSelect(attrs={
@@ -33,5 +33,3 @@ class ProgressForm(forms.ModelForm):
     #         self.save()
     #     else:
     #         raise forms.ValidationError("Please provide required inputs")
-
-        

@@ -30,4 +30,4 @@ class TableView(views.View):
                         "Today's Progress", "Today's Document", 'Concerns', 
                         "Next Plans", 'Next Plans Document']
         ctx['rows'] = progress_list
-        return render(request, "table.html", context=ctx)
+        return rsender(request, "table.html", context=ctx)
