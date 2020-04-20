@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task_reporter.views import FormView, TableView
+from task_reporter.views import FormView, TableView, download
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', FormView.as_view(), name="form"),
-    path('/table', TableView.as_view(), name="table")
+    path('table', TableView.as_view(), name="table"),
+    path('table/download/<path:path>', download, name="table")
 ]

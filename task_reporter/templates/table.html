@@ -45,10 +45,10 @@
                     <td>{{r.team_lead}}</td>
                     <td>{{r.no_of_hours}}</td>
                     <td>{{r.today_progress}}</td>
-                    <td>{{r.today_document}}</td>
+                    <td><a href="/table/download/{{r.today_document.url}}">{{r.today_document.url}}</a></td>
                     <td>{{r.concerns}}</td>
                     <td>{{r.next_plans}}</td>
-                    <td>{{r.next_plans_document}}</td>
+                    <td><a href="/table/download/{{r.next_plans_document.url}}">{{r.next_plans_document.url}}</a></td>
                 </tr>
             {% endfor %}
         </tbody>

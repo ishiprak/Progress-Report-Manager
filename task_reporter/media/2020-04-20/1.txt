@@ -1,0 +1,49 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <numeric> 
+//for accumulate(v.begin(),v.end(),0)
+
+using namespace std;
+int64_t n,t,i,j,k,l,flag,c,s,m;
+int main()
+{
+//long n;
+cin>>t;
+while(t>0){
+	    cin>>n>>k;
+        char a[n],b[n];
+        
+	    for(i=0;i<n;i++){
+	        cin>>a[i];
+	    }
+	    vector<char> v(a,a+n);
+	   // for(i=0;i<v.size();i++){
+	   //     cout<<v[i];
+	   // }
+	    for(i=n-1;i>=n-1-k;i--){
+	        if(v[i]=='H'){
+	            for(j=i;j>=0;j--){
+	                if(v[j]=='H'){
+	                    v[j]='T';
+	                }
+	                else{
+	                    v[j]='H';
+	                }
+	            }
+	        }
+	        v.pop_back();
+	    }
+	    c=0;
+	    for(i=0;i<v.size();i++){
+	        if(v[i]=='H'){
+	            c++;
+	        }
+	    }
+	    cout<<c<<"\n";
+	    //vector<int64_t> v(a,a+n);
+        t--;
+	}
+return 0;
+}
+
