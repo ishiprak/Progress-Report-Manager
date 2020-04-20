@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from task_reporter.views import FormView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', FormView.as_view(), name="form")
 ]
