@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task_reporter.views import FormView
+from task_reporter.views import FormView, TableView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', FormView.as_view(), name="form")
+    path('', FormView.as_view(), name="form"),
+    path('/table', TableView.as_view(), name="table")
 ]

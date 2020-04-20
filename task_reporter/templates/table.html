@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Report Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            margin: 5%;
+            font-size: large;
+            text-align: center;
+            align-self: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        th, td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table class="table-bordered table-hover">
+        <thead>
+            <tr>
+                {% for k in header %}
+                <th>{{k}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in rows %}
+                <tr>
+                    <td>{{r.id}}</td>
+                    <td>{{r.name}}</td>
+                    <td>{{r.date}}</td>
+                    <td>{{r.reports}}</td>
+                    <td>{{r.team_lead}}</td>
+                    <td>{{r.no_of_hours}}</td>
+                    <td>{{r.today_progress}}</td>
+                    <td>{{r.today_document}}</td>
+                    <td>{{r.concerns}}</td>
+                    <td>{{r.next_plans}}</td>
+                    <td>{{r.next_plans_document}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

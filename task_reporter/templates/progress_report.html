@@ -1,21 +1,141 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progress Report</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/opensans-font.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+		body{
+            margin:10px;
+            align-items: center;
+            background-color:aliceblue;
+            font-size: large;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        
+		.form-control{
+            width: 100%;
+            height: 50px;
+        }
+
+        header{
+            margin-bottom: 20%;
+        }
+
+        div{
+             width: 100%;
+        }
+
+        #tech_lead{
+            width: 100%;
+            display: inline;
+            float: left; 
+            list-style-type: none; 
+            margin-right: 10px;
+        }
+        #tech_lead li{
+            display: inline-block;
+            margin-right: 20px;
+            float: left; 
+        }
+
+        .panel{
+            width: 70%;
+            margin: 1.5%;
+            margin-left: 15%;
+            margin-right: 15%;
+            border-radius: 11px;
+        }
+
+	</style>
 </head>
 <body>
-    <h1>DAILY / WEAKLY / MONTHLY PROGRESS REPORT</h1>
-    <header>
-        Update Daily work report - On-time regular updates are a must.
-        This summary will be considered for final evaluation & progress - only source to be considered for all WFH for attendance and work content post-approval daily.
-        <br>
-        Also, keep sending your work snaps/recording in the group for immediate review.
-        Approvals by lead within 2 days and by project manager within 7 days to be done else work will be left as unapproved.
-        <br>
-        The name and photo associated with your Google account will be recorded when you upload files and submit this form. 
-    </header>
-    {{ form.as_p }}
+
+    <div class="panel panel-primary">    
+        <h1 class="panel-heading" style="text-align:center" >DAILY / WEAKLY / MONTHLY PROGRESS REPORT</h1>
+        <h3 class="panel-body">
+            Update Daily work report - On-time regular updates are a must.
+            This summary will be considered for final evaluation & progress - only source to be considered for all WFH for attendance and work content post-approval daily.
+            <br>
+            <br>
+            Also, keep sending your work snaps/recording in the group for immediate review.
+            Approvals by lead within 2 days and by project manager within 7 days to be done else work will be left as unapproved.
+            <br>
+            <br>
+            The name and photo associated with your Google account will be recorded when you upload files and submit this form. 
+        </h3>
+    </div>
+
+    <br>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> NAME </label></h3>
+        <div class="panel-body">{{ form.name }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> DATE </label></h3>
+        <div class="panel-body">{{ form.date }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> REPORTS </label></h3>
+        <div class="panel-body">{{ form.reports }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> TEAM LEAD </label></h3>
+        <div class="panel-body">{{ form.team_lead }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> NO OF HOURS </label></h3>
+        <div class="panel-body">{{ form.no_of_hours }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> TODAY&apos;S PROGRESS </label></h3>
+        <div class="panel-body">{{ form.today_progress }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> UPLOAD TODAY&apos;S DOCUMENTS </label></h3>
+        <div class="panel-body">{{ form.today_document }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> CONCERN IF ANY </label></h3>
+        <div class="panel-body">{{ form.concerns }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> NEXT PLAN </label></h3>
+        <div class="panel-body">{{ form.next_plans }}</div>
+        </div>
+        <br/>
+
+        <div class="panel panel-primary">
+        <h3 class="panel-heading"><label> UPLOAD NEXT PLAN DOCUMENTS IF ANY </label></h3>
+        <div class="panel-body">{{ form.next_plans_document }}</div>
+        </div>
+        <br/>
+        <input class="btn btn-success" style="width: 10%; height:55px; font-size:27px; margin-left: 15%;margin-bottom: 10%;" type="submit">
+    </form>
+    <br/>
+    <br/>
 </body>
 </html>

@@ -55,7 +55,7 @@ ROOT_URLCONF = 'assingment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "task_reporter/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,5 +118,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_ROOT = '/task_reporter/media/'
+STATIC_URL = os.path.join(BASE_DIR, 'task_reporter/static/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'task_reporter/media')
